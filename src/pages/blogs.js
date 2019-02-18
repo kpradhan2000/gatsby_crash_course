@@ -1,17 +1,24 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import Layout from '../components/layout';
 
 const Blogs = ({ data }) => {
-	console.log(' data ', data && data);
 	return (
 		<Layout>
 			<h1>Latest Posts</h1>
 			{data &&
-				data.allMarkdownRemark.edges.map(post => (
-					<div key={post.node.id}>
-						<h3>{post.node.frontmatter.title}</h3>
-					</div>
-				))}
+				data.allMarkdownRemark.edges.map(post => {
+					console.log(' post ', post);
+					return (
+						<div key={post.node.id}>
+							<h3>{post.node.frontmatter.title}</h3>
+							<Link to={post.node.frontmatter.path}>Details</Link>
+							<br />
+							<br />
+							<hr />
+						</div>
+					);
+				})}
 		</Layout>
 	);
 };
