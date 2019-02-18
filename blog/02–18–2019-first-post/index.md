@@ -1,5 +1,5 @@
 ---
-path: '/hello-world'
+path: '/hello-world1'
 date: '2019-02'
 title: 'My First Gatsby Post'
 ---
