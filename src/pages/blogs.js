@@ -8,7 +8,7 @@ const Blogs = ({ data }) => {
 			<h1>Latest Posts</h1>
 			{data &&
 				data.allMarkdownRemark.edges.map(post => {
-					console.log(' post ', post);
+					console.log(' post ', post.node);
 					return (
 						<div key={post.node.id}>
 							<h3>{post.node.frontmatter.title}</h3>
@@ -32,6 +32,7 @@ export const pageQuery = graphql`
 					frontmatter {
 						date
 						title
+						path
 					}
 				}
 			}
